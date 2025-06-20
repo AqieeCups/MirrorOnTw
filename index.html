@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOOLIT Skincare - For Eczema & Sensitive Skin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #fce4ec;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 2s;
+    }
+    header h1 {
+      color: #388e3c;
+    }
+    nav {
+      background: #c8e6c9;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .language-switch {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+      max-width: 300px;
+      text-align: center;
+      background: #f1f8e9;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer {
+      background: #c8e6c9;
+      padding: 20px;
+      text-align: center;
+    }
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 250px;
+      height: 200px;
+      overflow-y: auto;
+      display: none;
+    }
+    .chatbox input {
+      width: 80%;
+    }
+    .chatbox button {
+      width: 18%;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body onload="welcome()">
+
+  <div class="language-switch">
+    <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('ms')">BM</button>
+  </div>
+
+  <header>
+    <h1>KOOLIT Skincare</h1>
+    <p id="welcome-text">Gentle care for eczema and sensitive skin.</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+  </nav>
+
+  <section id="home">
+    <h2>About Skin & Why KOOLIT?</h2>
+    <p id="about-text">
+      Your skin is your largest organ — protect it! KOOLIT offers dermatologist-tested, hypoallergenic skincare specially designed for eczema and sensitive skin. Choose KOOLIT for healthier, happier skin.
+    </p>
+    <h3>What customers say:</h3>
+    <ul>
+      <li>"KOOLIT saved my baby's skin!"</li>
+      <li>"Finally a product that works for my eczema."</li>
+      <li>"Love the natural ingredients and gentle formula."</li>
+    </ul>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://www.koolit.com.my/wp-content/uploads/2021/08/Koolit-Cleansing-Lotion.jpg" alt="Koolit Cleansing Lotion" width="200"/>
+        <h3>Cleansing Lotion</h3>
+        <p>For eczema-prone skin.</p>
+        <button onclick="addToCart('Cleansing Lotion')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://www.koolit.com.my/wp-content/uploads/2021/08/Koolit-Moisturising-Lotion.jpg" alt="Koolit Moisturising Lotion" width="200"/>
+        <h3>Moisturising Lotion</h3>
+        <p>Hydrate and soothe sensitive skin.</p>
+        <button onclick="addToCart('Moisturising Lotion')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://www.koolit.com.my/wp-content/uploads/2021/08/Koolit-Cream.jpg" alt="Koolit Cream" width="200"/>
+        <h3>Rich Cream</h3>
+        <p>Deep moisture for very dry skin.</p>
+        <button onclick="addToCart('Rich Cream')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Follow us:</p>
+    <a href="https://www.instagram.com/koolitofficial/" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com/koolitofficial/" target="_blank">Facebook</a>
+    <p>&copy; 2025 KOOLIT Skincare</p>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <p><strong>AI Bot:</strong> Hi! How can I help you?</p>
+    <input type="text" id="chatInput" placeholder="Type a message..." />
+    <button onclick="sendChat()">Send</button>
+  </div>
+
+  <button style="position:fixed;bottom:20px;right:20px;" onclick="toggleChat()">Chat with us</button>
+
+  <script>
+    function welcome() {
+      alert("Welcome to KOOLIT Skincare!");
+    }
+
+    function addToCart(product) {
+      alert(product + " added to cart!");
+    }
+
+    function toggleChat() {
+      var chat = document.getElementById("chatbox");
+      chat.style.display = chat.style.display === "none" ? "block" : "none";
+    }
+
+    function sendChat() {
+      var input = document.getElementById("chatInput");
+      var chatbox = document.getElementById("chatbox");
+      var userMsg = document.createElement("p");
+      userMsg.innerHTML = "<strong>You:</strong> " + input.value;
+      chatbox.appendChild(userMsg);
+      var botReply = document.createElement("p");
+      botReply.innerHTML = "<strong>AI Bot:</strong> Thanks for your question!";
+      chatbox.appendChild(botReply);
+      input.value = "";
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function switchLang(lang) {
+      if(lang === 'ms') {
+        document.getElementById("welcome-text").innerText = "Penjagaan lembut untuk ekzema dan kulit sensitif.";
+        document.getElementById("about-text").innerText = "Kulit anda adalah organ terbesar — lindunginya! KOOLIT menawarkan penjagaan kulit diuji dermatologi, hipoalergenik khas untuk ekzema dan kulit sensitif. Pilih KOOLIT untuk kulit yang lebih sihat dan gembira.";
+      } else {
+        document.getElementById("welcome-text").innerText = "Gentle care for eczema and sensitive skin.";
+        document.getElementById("about-text").innerText = "Your skin is your largest organ — protect it! KOOLIT offers dermatologist-tested, hypoallergenic skincare specially designed for eczema and sensitive skin. Choose KOOLIT for healthier, happier skin.";
+      }
+    }
+  </script>
+
+</body>
+</html>
