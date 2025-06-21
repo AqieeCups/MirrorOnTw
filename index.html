@@ -2,217 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KOOLIT Skincare - Gentle Care for Eczema</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, #f8bbd0, #c8e6c9);
-      padding: 30px;
-      text-align: center;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      animation: fadeIn 2s ease;
-    }
-    header h1 {
-      color: #2e7d32;
-      margin: 0;
-      font-size: 2.5em;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background: #fce4ec;
-      padding: 15px 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: #2e7d32;
-      font-weight: bold;
-    }
-    .language-switch {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background: #f1f8e9;
-      padding: 15px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .product:hover {
-      transform: translateY(-5px);
-    }
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .chatbox {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 250px;
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 10px;
-      display: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      background: #fce4ec;
-      padding: 20px;
-      text-align: center;
-      margin-top: 30px;
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
-    }
-    button {
-      background: #81c784;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      color: white;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background: #66bb6a;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOOLIT Skincare</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
-<body onload="welcome()">
-
-  <div class="language-switch">
-    <button onclick="switchLang('en')">EN</button>
-    <button onclick="switchLang('ms')">BM</button>
+<body>
+  <!-- Welcome Animation -->
+  <div class="welcome-video">
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text">Welcome to KOOLIT - Eczema-Friendly Skincare</div>
   </div>
 
-  <header>
-    <h1>KOOLIT Skincare</h1>
-    <p id="welcome-text">Gentle care for eczema and sensitive skin</p>
-  </header>
-
+  <!-- Navbar -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
+    <h1>KOOLIT</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
   </nav>
 
-  <div class="container">
-    <section id="home">
-      <h2>About Your Skin & Why Choose KOOLIT</h2>
-      <p id="about-text">
-        Your skin deserves gentle, effective care. KOOLIT is formulated for eczema, sensitive and oily skin using dermatologically tested ingredients. Feel confident in your skin with KOOLIT’s natural, soothing formulas.
-      </p>
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <h2>Why Choose KOOLIT?</h2>
+    <p>KOOLIT specializes in gentle, natural skincare for eczema-prone and sensitive skin. Our formula is dermatologist-tested, vegan, fragrance-free, and non-irritating.</p>
+    <div class="feedback">
       <h3>Customer Feedback</h3>
-      <ul>
-        <li>"Amazing relief for my eczema!"</li>
-        <li>"My skin feels soft and healthy."</li>
-        <li>"KOOLIT is a must-have for sensitive skin."</li>
-      </ul>
-    </section>
+      <blockquote>"KOOLIT saved my skin! No more flare-ups." – Aina M.</blockquote>
+      <blockquote>"I feel more confident using this product every day." – Ray N.</blockquote>
+    </div>
+  </section>
 
-    <section id="products">
-      <h2>Our Products</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x250.png?text=KOOLIT+Cleansing+Lotion" alt="KOOLIT Cleansing Lotion">
-          <h3>Cleansing Lotion</h3>
-          <p>For eczema-prone & sensitive skin</p>
-          <button onclick="addToCart('Cleansing Lotion')">Add to Cart</button>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x250.png?text=KOOLIT+Moisturising+Lotion" alt="KOOLIT Moisturising Lotion">
-          <h3>Moisturising Lotion</h3>
-          <p>Hydrates and soothes dry skin</p>
-          <button onclick="addToCart('Moisturising Lotion')">Add to Cart</button>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x250.png?text=KOOLIT+Rich+Cream" alt="KOOLIT Rich Cream">
-          <h3>Rich Cream</h3>
-          <p>Deep moisture for very dry areas</p>
-          <button onclick="addToCart('Rich Cream')">Add to Cart</button>
-        </div>
+  <!-- Products Section -->
+  <section id="products" class="section">
+    <h2>Our Products</h2>
+    <div class="filters">
+      <button onclick="filterProducts('eczema')">Eczema Skin</button>
+      <button onclick="filterProducts('sensitive')">Sensitive Skin</button>
+    </div>
+    <div class="product-list" id="product-list">
+      <!-- Example Products -->
+      <div class="product-card eczema">
+        <img src="https://via.placeholder.com/200x200?text=Eczema+Cream" alt="Eczema Cream">
+        <h3>Soothing Eczema Cream</h3>
+        <p>RM59.90</p>
+        <button>Add to Cart</button>
       </div>
-    </section>
+      <div class="product-card sensitive">
+        <img src="https://via.placeholder.com/200x200?text=Sensitive+Moisturizer" alt="Sensitive Moisturizer">
+        <h3>Daily Sensitive Moisturizer</h3>
+        <p>RM49.90</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Follow us on Instagram: <a href="https://instagram.com/koolit">@koolit</a></p>
+    <p>Customer Hotline: <a href="tel:+60177761966">017 776 1966</a></p>
+  </section>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button id="chat-toggle">Chat with KOOLIT AI</button>
+    <div id="chat-box" class="hidden">
+      <div id="chat-log"></div>
+      <input type="text" id="user-input" placeholder="Ask anything...">
+    </div>
   </div>
-
-  <footer>
-    <p>Follow us: 
-      <a href="https://www.instagram.com/koolitofficial/" target="_blank">Instagram</a> | 
-      <a href="https://www.facebook.com/koolitofficial/" target="_blank">Facebook</a>
-    </p>
-    <p>&copy; 2025 KOOLIT Skincare</p>
-  </footer>
-
-  <div class="chatbox" id="chatbox">
-    <p><strong>AI Bot:</strong> Hello! How can I assist you?</p>
-    <input type="text" id="chatInput" placeholder="Type a message..." style="width: 80%;">
-    <button onclick="sendChat()">Send</button>
-  </div>
-
-  <button style="position:fixed;bottom:20px;right:20px;" onclick="toggleChat()">Chat</button>
-
-  <script>
-    function welcome() {
-      alert("🌸 Welcome to KOOLIT Skincare 🌿");
-    }
-
-    function addToCart(product) {
-      alert(product + " added to your cart!");
-    }
-
-    function toggleChat() {
-      var chat = document.getElementById("chatbox");
-      chat.style.display = chat.style.display === "none" ? "block" : "none";
-    }
-
-    function sendChat() {
-      var input = document.getElementById("chatInput");
-      var chatbox = document.getElementById("chatbox");
-      var userMsg = document.createElement("p");
-      userMsg.innerHTML = "<strong>You:</strong> " + input.value;
-      chatbox.appendChild(userMsg);
-      var botReply = document.createElement("p");
-      botReply.innerHTML = "<strong>AI Bot:</strong> Thank you for your message!";
-      chatbox.appendChild(botReply);
-      input.value = "";
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
-
-    function switchLang(lang) {
-      if(lang === 'ms') {
-        document.getElementById("welcome-text").innerText = "Penjagaan lembut untuk ekzema dan kulit sensitif";
-        document.getElementById("about-text").innerText = "Kulit anda memerlukan penjagaan lembut dan berkesan. KOOLIT dirumus untuk ekzema, kulit sensitif dan berminyak dengan bahan yang diuji dermatologi. Yakinlah dengan KOOLIT.";
-      } else {
-        document.getElementById("welcome-text").innerText = "Gentle care for eczema and sensitive skin";
-        document.getElementById("about-text").innerText = "Your skin deserves gentle, effective care. KOOLIT is formulated for eczema, sensitive and oily skin using dermatologically tested ingredients. Feel confident in your skin with KOOLIT’s natural, soothing formulas.";
-      }
-    }
-  </script>
 
 </body>
 </html>
